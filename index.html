@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DIG4503 – Adam Boerema – Semester Project</title>
+<head>
+<link rel="stylesheet" href="css/styles.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"></script>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyCI5vFysWfhRX5fR52_EawuhpSTqvmp6BM" type="text/javascript"></script>
+<script type="text/javascript" src="js/init.js"></script>
+
+<!-- Start of jquery .tmpl() templates for the dynamically created map markers and info -->
+
+<script id="businessInfo" type="text/x-jquery-tmpl">
+		<div class="place-info">
+			<p><img src='${photoURL}' /></p>
+			<p><img src='${imgRating}' /></p>
+			<p>${name}</p>
+			<p>${address} ${city} ${state} ${zip}</p>
+			<p>${phone}</p>
+			<a href="${marker}"><div>Show on map</div></a>
+			<a href="javascript:setDirections('${directions}')"><div>Get directions to</div></a>
+		</div>
+		<hr>
+</script>
+<script id="markerInfo" type="text/x-jquery-tmpl">
+		<div class="place-info">
+		<p><img src='${photoURL}' /></p>
+		<p><img src='${imgRating}' /></p>
+		<p>${name}</p>
+		<p>${address} ${city} ${state} ${zip}</p>
+		<p>${phone}</p>
+		<a href="javascript:setDirections('${directions}')"><div>Get directions to</div></a>
+		</div>
+	</script>
+<script id="yelpAddress" type="text/x-jquery-tmpl">
+		${address} ${city}, ${state} ${zip}
+</script>
+
+<!-- End of jquery .tmpl() templates -->
+
+</head>
+<body onload="initialize()">
+<a href="#" id="search-link"><img id="search-icon" src="img/search.png" alt="search icon"></a>
+<div class="container">
+	<div id="map-container">
+		<div id="div-results"></div>
+        <div id="map-canvas"></div>
+        <div id="directions"></div>
+    </div>
+    <div id="form-container">
+    	<img src="img/yelp.png" alt="yelp logo"/>
+	    <form>
+	    	<input type="text" id="term" name="term" value="" placeholder="Search businesses">
+	    	<input type="text" id="address" name="address" value="" placeholder="Enter an address">
+	    	<input type="button" id="yelpAction" onclick="retrieveYelp();" value="Yelp Search">
+	    	<p class="author">Created by: Adam Boerema</p>
+	    </form>
+	</div>
+</div>
+ 
+</body>
+</html>
